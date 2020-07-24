@@ -1,0 +1,21 @@
+.form-container {
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 2rem;
+  text-align: center;
+  padding-bottom: 35vh;
+  .form-control {
+    width: 100%;
+    outline: none;
+    border-radius: 2px;
+    border: solid 1px #cacad3;
+    height: 24px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 4px;
+  }
+}

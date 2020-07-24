@@ -2,6 +2,7 @@
 @import "./footer.scss";
 @import "./header.scss";
 @import "./tag.scss";
+@import "./form.scss";
 
 html,
 body,
@@ -128,4 +129,11 @@ table {
   border-spacing: 0;
 }
 
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
 
+a {
+  text-decoration: none;
+}

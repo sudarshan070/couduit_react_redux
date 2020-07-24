@@ -34,6 +34,13 @@
   font-size: 22px;
   color: #5cb85c;
   font-weight: 700;
+  text-decoration: none;
+}
+
+.container-header .nav-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .container-header .nav-bar .nav-list {
@@ -41,6 +48,7 @@
   padding-left: 14px;
   font-size: 14px;
   color: #b2b2b2;
+  text-decoration: none;
 }
 
 .container-header .nav-bar .nav-list:hover {
@@ -75,6 +83,13 @@
   font-size: 1.5rem;
   font-weight: 300 !important;
   margin-bottom: 0;
+}
+
+.form-container {
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 2rem;
+  text-align: center;
 }
 
 html,
@@ -206,5 +221,14 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,1 +1,88 @@
-/* No CSS *//*# sourceMappingURL=article.css.map */
+.article {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 0;
+}
+
+.article .article-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 0 1rem;
+}
+
+.article .article-flex .article-img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.article .article-flex .info {
+  margin: 0 1.5rem 0 0.3rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.article .article-flex .info .author {
+  display: block;
+  font-weight: 500 !important;
+  color: #5cb85c;
+}
+
+.article .article-flex .info .date {
+  color: #bbb;
+  font-size: 0.8rem;
+}
+
+.article h2 {
+  font-weight: 600 !important;
+  font-size: 1.5rem !important;
+  margin-bottom: 3px;
+}
+
+.article p {
+  font-weight: 300;
+  color: #999;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  line-height: 1.3rem;
+}
+
+.article ul {
+  float: right;
+  max-width: 50%;
+  vertical-align: top;
+}
+
+.article ul .tag-list {
+  padding-left: 0 !important;
+  display: inline-block;
+  list-style: none !important;
+}
+
+.article ul li {
+  display: inline-block !important;
+}
+
+.article ul,
+.article li {
+  font-weight: 300;
+  font-size: 0.8rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.article ul {
+  margin-bottom: 1rem;
+}
+
+.tag-btn {
+  border: 1px solid #ddd;
+  color: #aaa !important;
+  background: 0 0 !important;
+  margin-right: 3px;
+  margin-bottom: 0.2rem;
+  padding-right: 0.6em;
+  padding-left: 0.6em;
+  border-radius: 10rem;
+}
+/*# sourceMappingURL=article.css.map */
