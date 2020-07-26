@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware } from 'redux'
 import { ADD_ARTICLE, ADD_TAG } from '../types/types'
 
+
 const initialState = {
     articles: [],
     tags: []
@@ -25,14 +26,13 @@ function reducer(state = initialState, action) {
 }
 
 
-
 let thunk = (store) => next => action => {
-    if (action.type === "fetch") {
-        fetch(action.url)
-            .then((res) => res.json())
-            .then((data) => store.dispatch(action.fallback(data)))
+    if (typeof action === "function") {
+        return action(store.dispatch)
     }
     return next(action)
 }
+
+
 
 export let store = createStore(reducer, applyMiddleware(thunk))

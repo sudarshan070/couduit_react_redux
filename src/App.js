@@ -39,8 +39,16 @@ export default class App extends React.Component {
   }
 }
 
-
-const HomePage = () => (<><Hero /> <Article /> <Tags /></>)
+const HomePage = () => (<>
+  <Hero />
+  <div className='container'>
+    <div className='flex'>
+      <Article />
+      <Tags />
+    </div>
+  </div>
+</>
+)
 
 
 

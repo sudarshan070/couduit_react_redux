@@ -1,6 +1,6 @@
 .article {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 1.5rem 0;
+  padding: 1.7rem 0;
   .article-flex {
     display: flex;
     margin: 0 0 1rem;
@@ -56,9 +56,6 @@
     padding-top: 0 !important;
     padding-bottom: 0 !important;
   }
-  ul {
-    margin-bottom: 1rem;
-  }
 }
 
 .tag-btn {
@@ -70,4 +67,17 @@
   padding-right: 0.6em;
   padding-left: 0.6em;
   border-radius: 10rem;
+}
+
+li {
+  list-style: none;
+}
+ul {
+  margin-bottom: 1rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }

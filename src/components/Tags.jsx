@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchTag } from "../action/action";
+import { fetchTag, fetchArticle } from "../action/action";
 
 class Tags extends React.Component {
   componentDidMount() {
@@ -9,13 +9,32 @@ class Tags extends React.Component {
     );
   }
 
+  handleClick = (tag) => {
+    this.props.dispatch(fetchArticle(
+      `https://conduit.productionready.io/api/articles?tag=${tag}&limit=10&offset=0`
+    ));
+  };
+
   render() {
     const { tags } = this.props;
     return (
-      <div>
-        {tags.map((tag, i) => {
-          return <p key={i}>{tag}</p>;
-        })}
+      <div className="tag-div">
+        <div className="tag-sidebar">
+          <p>Popular Tags</p>
+          <div className="tag-list">
+            {tags.map((tag, i) => {
+              return (
+                <button
+                  className="single-tag"
+                  onClick={() => this.handleClick(tag)}
+                  key={i}
+                >
+                  {tag}
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
     );
   }
