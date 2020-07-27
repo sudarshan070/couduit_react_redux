@@ -12,7 +12,6 @@ class Article extends React.Component {
   }
 
   render() {
-    console.log(this.props, "this.props");
     const { articles } = this.props;
     return (
       <div className="article-div">
@@ -48,7 +47,6 @@ class Article extends React.Component {
 }
 
 function mapToState(state) {
-  console.log(state, "article state is here");
   return { ...state };
 }
 

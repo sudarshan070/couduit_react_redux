@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { registerUser } from "../action/action";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
- function Register(props) {
+
+function Register(props) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
-    console.log('handleClick')
     const user = {
       user: {
         username,
@@ -16,16 +17,16 @@ import { connect } from "react-redux";
         password,
       },
     };
-    props.dispatch(registerUser(user, props.history))
-    console.log(user, 'user')
+    props.dispatch(registerUser(user, props.history));
+    console.log(user, "user");
   };
 
   return (
     <div className="container">
       <div className="form-container">
-        <div>
+        <div className='form-heading'>
           <h2>Sign up</h2>
-          <a href="/login">Have an account</a>
+          <Link className='form-subheading' to="/login">Have an account?</Link>
         </div>
 
         <input
@@ -49,11 +50,11 @@ import { connect } from "react-redux";
           onChange={({ target: { value } }) => setPassword(value)}
           placeholder="Password"
         />
-        <button onClick={handleSubmit} className="btn btn-success">
+        <button onClick={handleSubmit} className="btnRegisterLogin">
           Sign Up
         </button>
       </div>
     </div>
   );
 }
- export default connect()(Register)
+export default connect()(Register);

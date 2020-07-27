@@ -8,9 +8,10 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Tags from './components/Tags'
 import Article from './components/Article'
+import { connect } from 'react-redux'
 
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,19 +19,15 @@ export default class App extends React.Component {
     }
   }
 
-  updateLoggedIn = (status) => {
-    this.setState({ isLoggedIn: status })
-  }
 
   render() {
-    let { isLoggedIn } = this.state
     return (
       <BrowserRouter>
-        < Header isLoggedIn={isLoggedIn} />
+        < Header />
         <Switch>
           <Route component={HomePage} path='/' exact />
           <Route component={Register} path='/register' />
-          <Route render={() => <Login updateLoggedIn={this.updateLoggedIn} />} path='/login' />
+          <Route component={Login} path='/login' />
           <Route component={Error} />
         </Switch>
         <Footer />
@@ -51,4 +48,4 @@ const HomePage = () => (<>
 )
 
 
-
+export default connect()(App)

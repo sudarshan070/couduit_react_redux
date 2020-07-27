@@ -5,7 +5,6 @@ export function addArticle(payload) {
     return {
         type: ADD_ARTICLE,
         payload
-        // payload:payload.action
     }
 }
 
@@ -14,15 +13,9 @@ export function fetchArticle(url) {
         fetch(url)
             .then((res) => res.json())
             .then(({ articles }) => {
-                console.log(articles, 'here we egt')
                 dispatch(addArticle(articles))
             })
     }
-    // return {
-    //     type: 'fetch',
-    //     fallback: addArticle,
-    //     url
-    // }
 }
 
 
@@ -41,11 +34,6 @@ export function fetchTag(url) {
                 dispatch(addTag(tags))
             })
     }
-    // return {
-    //     type: 'fetch',
-    //     fallback: addTag,
-    //     url
-    // }
 }
 
 export const registerUser = (credentials, history) => {
@@ -63,7 +51,27 @@ export const registerUser = (credentials, history) => {
         const { user: { token }, } = user
         if (token) {
             localStorage.setItem('authToken', token);
+            history.push('/login')
+        }
+    }
+}
+
+export const loginUser = (credentials, history) => {
+    console.log(credentials, 'credentials')
+    return async () => {
+        const url = "https://conduit.productionready.io/api/users/login";
+        const response = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(credentials),
+        })
+        const user = await response.json();
+        const { user: { token }, } = user
+        console.log(token, 'token is here')
+        if (token) {
+            localStorage.setItem('authToken', token);
             history.push('/')
         }
+
     }
 }

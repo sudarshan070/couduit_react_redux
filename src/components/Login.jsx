@@ -1,74 +1,57 @@
-import React from "react";
-import { button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import {loginUser} from '../action/action'
 
-export default class Login extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: "",
+function Login(props) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handelSubmit = () => {
+    const user = {
+      user: {
+        email,
+        password,
+      },
     };
-  }
-
-  handleInput = ({ target: { name, value } }) => {
-    this.setState({ [name]: value });
+    props.dispatch(loginUser(user, props.history));
   };
 
-  handelSubmit = () => {
-    let userUrl = "/api/users/login";
-    fetch(userUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ user: this.state }),
-    })
-      .then((res) => res.json())
-      .then((user) => {
-        if (user.token) {
-          localStorage.setItem("authToken", user.token);
-          this.props.updateLoggedIn(true);
-          this.props.history.push("/");
-        } else {
-          this.setState({ error: "Something Went Wrong!" });
-        }
-      })
-      .catch((error) => console.log(error));
-  };
-
-  render() {
-    const { email, password, error } = this.state;
-    return (
+  return (
+    <div className="container">
       <div className="form-container">
-        <div className="container">
-          <div>
-            <h2>Sign In</h2>
-            <a href="/register">You need an account?</a>
-          </div>
-          <input
-            className="form-control"
-            name="email"
-            type="email"
-            onChange={this.handleInput}
-            value={email}
-            placeholder="Email"
-          />
-          <input
-            className="form-control"
-            type="password"
-            name="password"
-            onChange={this.handleInput}
-            value={password}
-            placeholder="Password"
-          />
-          <span className="error-msg">{error && error}</span>
-          <button
-            type="button"
-            onClick={this.handelSubmit}
-            className="btn btn-success"
-          >
-            Sign In
-          </button>
+        <div className="form-heading">
+          <h2>Sign In</h2>
+          <Link className="form-subheading" to="/register">
+            You need an account?
+          </Link>
         </div>
+        <input
+          className="form-control"
+          name="email"
+          type="email"
+          onChange={({ target: { value } }) => setEmail(value)}
+          value={email}
+          placeholder="Email"
+        />
+        <input
+          className="form-control"
+          type="password"
+          name="password"
+          onChange={({ target: { value } }) => setPassword(value)}
+          value={password}
+          placeholder="Password"
+        />
+        <button
+          type="button"
+          onClick={handelSubmit}
+          className="btnRegisterLogin"
+        >
+          Sign In
+        </button>
       </div>
-    );
-  }
+    </div>
+  );
 }
+
+export default connect()(Login);
