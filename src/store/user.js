@@ -12,7 +12,7 @@ function userReducer(state = initialState, action) {
         case ADD_USER:
             return {
                 ...state,
-                articles: action.payload
+                user: action.payload
             }
 
         default:

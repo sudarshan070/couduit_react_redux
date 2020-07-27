@@ -1,4 +1,4 @@
-import { ADD_ARTICLE, ADD_TAG, ADD_USER } from '../types/types'
+import { ADD_ARTICLE, ADD_TAG, ADD_USER, USER_LOGGED_IN, USER_INFO_ADD } from '../types/types'
 
 
 export function addArticle(payload) {
@@ -46,15 +46,30 @@ export function fetchUser(url, payload, history) {
             },
             body: JSON.stringify({ user: payload }),
         })
-            .then((res) => {
-                if (res.status === 200) {
-                    history.push("/");
-                }
-                return res.json();
-            })
+            .then((res) => res.json())
             .then(({ user }) => {
-                localStorage.setItem("authToken", user.token);
+                if (user.token) {
+                    localStorage.setItem("authToken", user.token);
+                    history.push("/")
+                }
                 dispatch({ type: ADD_USER, payload: user })
             });
+    }
+}
+
+
+export function fetchLoggedIn(url, token) {
+    return function (dispatch) {
+        fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                authorization: `Token ${token}`
+            },
+        }).then((res) => res.json()).then(({ user }) => {
+            console.log(user, 'user logged is here')
+            dispatch({ type: USER_INFO_ADD, payload: user })
+            dispatch({ type: USER_LOGGED_IN, payload: true })
+        })
     }
 }

@@ -9,32 +9,35 @@ import Login from './components/Login'
 import Tags from './components/Tags'
 import Article from './components/Article'
 import { connect } from 'react-redux'
+import { fetchLoggedIn } from './action/action';
 
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoggedIn: false
+
+  componentDidMount() {
+    if (localStorage.authToken) {
+
+      console.log("componentDidMount")
+      this.props.dispatch(fetchLoggedIn("https://conduit.productionready.io/api/user", localStorage.authToken))
     }
   }
-
 
   render() {
     return (
       <BrowserRouter>
         < Header />
         <Switch>
-          <Route component={HomePage} path='/' exact />
-          <Route component={Register} path='/register' />
-          <Route component={Login} path='/login' />
+          <Route path='/' component={HomePage} exact />
+          <Route path='/register' component={Register} />
+          <Route path='/login' component={Login} />
           <Route component={Error} />
         </Switch>
         <Footer />
-      </BrowserRouter>
+      </BrowserRouter >
     );
   }
 }
+
 
 const HomePage = () => (<>
   <Hero />
@@ -47,5 +50,8 @@ const HomePage = () => (<>
 </>
 )
 
+function mapState(state){
+  return {state}
+}
 
-export default connect()(App)
+export default connect(mapState)(App)
