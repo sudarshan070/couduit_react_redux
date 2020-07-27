@@ -1,4 +1,4 @@
-import { ADD_ARTICLE, ADD_TAG } from '../types/types'
+import { ADD_ARTICLE, ADD_TAG, ADD_USER } from '../types/types'
 
 
 export function addArticle(payload) {
@@ -36,42 +36,25 @@ export function fetchTag(url) {
     }
 }
 
-export const registerUser = (credentials, history) => {
-    console.log(credentials, history, "enter int")
-    return async () => {
-        const url = "https://conduit.productionready.io/api/users";
-        const response = await fetch(url, {
+
+export function fetchUser(url, payload, history) {
+    return function (dispatch) {
+        fetch(url, {
             method: "POST",
             headers: {
-                'content-type': 'application/json',
+                "Content-Type": "application/json",
             },
-            body: JSON.stringify(credentials),
-        });
-        const user = await response.json();
-        const { user: { token }, } = user
-        if (token) {
-            localStorage.setItem('authToken', token);
-            history.push('/login')
-        }
-    }
-}
-
-export const loginUser = (credentials, history) => {
-    console.log(credentials, 'credentials')
-    return async () => {
-        const url = "https://conduit.productionready.io/api/users/login";
-        const response = await fetch(url, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(credentials),
+            body: JSON.stringify({ user: payload }),
         })
-        const user = await response.json();
-        const { user: { token }, } = user
-        console.log(token, 'token is here')
-        if (token) {
-            localStorage.setItem('authToken', token);
-            history.push('/')
-        }
-
+            .then((res) => {
+                if (res.status === 200) {
+                    history.push("/");
+                }
+                return res.json();
+            })
+            .then(({ user }) => {
+                localStorage.setItem("authToken", user.token);
+                dispatch({ type: ADD_USER, payload: user })
+            });
     }
 }

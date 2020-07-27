@@ -34,8 +34,12 @@ class Article extends React.Component {
               <h2>{article.title}</h2>
               <p>{article.description}</p>
               <ul className="tag-list">
-                {article.tagList.map((tag) => {
-                  return <li className="tag-btn">{tag}</li>;
+                {article.tagList.map((tag, i) => {
+                  return (
+                    <li key={i} className="tag-btn">
+                      {tag}
+                    </li>
+                  );
                 })}
               </ul>
             </li>
