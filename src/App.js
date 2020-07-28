@@ -8,30 +8,50 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Tags from './components/Tags'
 import Article from './components/Article'
+import NewPost from './components/NewPost'
 import { connect } from 'react-redux'
 import { fetchLoggedIn } from './action/action';
 
 
 class App extends React.Component {
-
+ 
   componentDidMount() {
     if (localStorage.authToken) {
-
-      console.log("componentDidMount")
-      this.props.dispatch(fetchLoggedIn("https://conduit.productionready.io/api/user", localStorage.authToken))
+      this.props.dispatch(fetchLoggedIn(
+        "https://conduit.productionready.io/api/user",
+        localStorage.authToken
+      ))
     }
   }
 
+
+
+  verifyRoutes = () =>
+    localStorage.authToken ?
+      <Switch>
+        <Route path='/' component={HomePage} exact />
+        <Route path="/newPost" component={NewPost} />
+        <Route component={Error} />
+      </Switch> :
+      <Switch>
+        <Route path='/' component={HomePage} exact />
+        <Route path='/register' component={Register} />
+        <Route path='/login' component={Login} />
+        <Route component={Error} />
+      </Switch>
+
+
   render() {
+    const { isLoggedIn } = this.props
     return (
       <BrowserRouter>
-        < Header />
-        <Switch>
-          <Route path='/' component={HomePage} exact />
-          <Route path='/register' component={Register} />
-          <Route path='/login' component={Login} />
-          <Route component={Error} />
-        </Switch>
+        {isLoggedIn ? (
+          < Header isLoggedIn={isLoggedIn}
+          />
+
+        ) : <Header />}
+
+        {this.verifyRoutes()}
         <Footer />
       </BrowserRouter >
     );
@@ -50,8 +70,8 @@ const HomePage = () => (<>
 </>
 )
 
-function mapState(state){
-  return {state}
+function mapState(state) {
+  return { state }
 }
 
 export default connect(mapState)(App)

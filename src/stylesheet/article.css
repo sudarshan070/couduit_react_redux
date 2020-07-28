@@ -1,6 +1,6 @@
 .article {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 1.5rem 0;
+  padding: 1.7rem 0;
 }
 
 .article .article-flex {
@@ -71,10 +71,6 @@
   padding-bottom: 0 !important;
 }
 
-.article ul {
-  margin-bottom: 1rem;
-}
-
 .tag-btn {
   border: 1px solid #ddd;
   color: #aaa !important;
@@ -84,5 +80,20 @@
   padding-right: 0.6em;
   padding-left: 0.6em;
   border-radius: 10rem;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  margin-bottom: 1rem;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 /*# sourceMappingURL=article.css.map */

@@ -1,12 +1,12 @@
 import { createStore, applyMiddleware } from 'redux'
-import { ADD_ARTICLE, ADD_TAG, USER_LOGGED_IN, USER_INFO_ADD } from '../types/types'
+import { ADD_ARTICLE, ADD_TAG, USER_LOGGED_IN, USER_INFO_ADD, REMOVE_USER } from '../types/types'
 
 
 const initialState = {
     articles: [],
     tags: [],
     isLoggedIn: false,
-    userInfo: {}
+    userInfo: {},
 }
 
 function reducer(state = initialState, action) {
@@ -32,6 +32,12 @@ function reducer(state = initialState, action) {
                 ...state,
                 userInfo: action.payload
             }
+        case REMOVE_USER: {
+            return {
+                ...state,
+                userInfo: null
+            }
+        }
         default:
             return state
     }

@@ -1,3 +1,102 @@
+.article {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1.7rem 0;
+}
+
+.article .article-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 0 1rem;
+}
+
+.article .article-flex .article-img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.article .article-flex .info {
+  margin: 0 1.5rem 0 0.3rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.article .article-flex .info .author {
+  display: block;
+  font-weight: 500 !important;
+  color: #5cb85c;
+}
+
+.article .article-flex .info .date {
+  color: #bbb;
+  font-size: 0.8rem;
+}
+
+.article h2 {
+  font-weight: 600 !important;
+  font-size: 1.5rem !important;
+  margin-bottom: 3px;
+}
+
+.article p {
+  font-weight: 300;
+  color: #999;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  line-height: 1.3rem;
+}
+
+.article ul {
+  float: right;
+  max-width: 50%;
+  vertical-align: top;
+}
+
+.article ul .tag-list {
+  padding-left: 0 !important;
+  display: inline-block;
+  list-style: none !important;
+}
+
+.article ul li {
+  display: inline-block !important;
+}
+
+.article ul,
+.article li {
+  font-weight: 300;
+  font-size: 0.8rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.tag-btn {
+  border: 1px solid #ddd;
+  color: #aaa !important;
+  background: 0 0 !important;
+  margin-right: 3px;
+  margin-bottom: 0.2rem;
+  padding-right: 0.6em;
+  padding-left: 0.6em;
+  border-radius: 10rem;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  margin-bottom: 1rem;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .footer {
   background: #f3f3f3;
   text-align: center;
@@ -85,11 +184,110 @@
   margin-bottom: 0;
 }
 
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.flex .article-div {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  max-width: 70%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 70%;
+          flex: 0 0 70%;
+}
+
+.flex .tag-div {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  max-width: 25%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
+}
+
+.flex .tag-div .tag-sidebar {
+  padding: 5px 10px 10px;
+  background: #f3f3f3;
+  border-radius: 4px;
+}
+
+.flex .tag-div .tag-sidebar p {
+  margin-bottom: 0.5rem;
+}
+
+.flex .tag-div .tag-sidebar .single-tag {
+  color: #fff !important;
+  font-size: 0.8rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  white-space: nowrap;
+  margin-right: 3px;
+  margin-bottom: 0.2rem;
+  display: inline-block;
+  background-color: #818a91;
+  padding-right: 0.6em;
+  padding-left: 0.6em;
+  border-radius: 10rem;
+  outline: none;
+  font-weight: 300;
+}
+
 .form-container {
   width: 50%;
   margin: 0 auto;
   padding-top: 2rem;
   text-align: center;
+  padding-bottom: 35vh;
+}
+
+.form-container .form-control {
+  width: 100%;
+  border: solid 1px #cacad3;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+  border-radius: 0.3rem;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.form-container .form-heading {
+  padding-bottom: 2rem;
+  line-height: 1.3;
+}
+
+.form-container .form-heading h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-container .form-heading .form-subheading {
+  color: #5cb85c;
+}
+
+.btnRegisterLogin {
+  float: right;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+  border-radius: 0.3rem;
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+}
+
+.article-form-control {
+  font-size: 20px;
 }
 
 html,
