@@ -3,6 +3,19 @@
   padding: 1.7rem 0;
 }
 
+.article .single-article-bg {
+  background: #333333;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.article .single-article-title {
+  font-size: 2.8rem;
+  color: #fff;
+  margin-bottom: 2.2rem;
+}
+
 .article .article-flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -95,5 +108,15 @@ ul {
 *::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.article-border-non {
+  border: 0;
+}
+
+.single-article-body p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  margin-bottom: 1.6rem;
 }
 /*# sourceMappingURL=article.css.map */

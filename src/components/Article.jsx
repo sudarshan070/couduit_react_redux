@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { fetchArticle } from "../action/action";
 
 class Article extends React.Component {
@@ -16,6 +17,7 @@ class Article extends React.Component {
     return (
       <div className="article-div">
         {articles.map((article, i) => {
+          // console.log(article.slug);
           return (
             <li className="article" key={i}>
               <div className="article-flex">
@@ -33,6 +35,7 @@ class Article extends React.Component {
               </div>
               <h2>{article.title}</h2>
               <p>{article.description}</p>
+              <Link to={`/article/${article.slug}`}>Read more...</Link>
               <ul className="tag-list">
                 {article.tagList.map((tag, i) => {
                   return (

@@ -1,4 +1,4 @@
-import { ADD_ARTICLE, ADD_TAG, ADD_USER, USER_LOGGED_IN, USER_INFO_ADD, REMOVE_USER } from '../types/types'
+import { ADD_ARTICLE, ADD_TAG, ADD_USER, USER_LOGGED_IN, USER_INFO_ADD, REMOVE_USER, SINGLE_ARTICLE } from '../types/types'
 
 
 export function addArticle(payload) {
@@ -37,6 +37,28 @@ export function addNewArticle(articleUrl, payload, history) {
     }
 }
 
+
+export function addSingleArticle(payload) {
+    return {
+        type: SINGLE_ARTICLE,
+        payload
+    }
+}
+
+export function fetchSingleArticle(singleArticleUrl) {
+    return function (dispatch) {
+        fetch(singleArticleUrl, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then((res) => res.json())
+            .then(({article}) => {
+                // console.log(article)
+                dispatch(addSingleArticle(article))
+            })
+    }
+}
 
 export function addTag(payload) {
     return {

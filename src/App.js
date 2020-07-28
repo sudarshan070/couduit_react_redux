@@ -9,12 +9,13 @@ import Login from './components/Login'
 import Tags from './components/Tags'
 import Article from './components/Article'
 import NewPost from './components/NewPost'
+import SingleArticle from './components/SingleArticle'
 import { connect } from 'react-redux'
 import { fetchLoggedIn } from './action/action';
 
 
 class App extends React.Component {
- 
+
   componentDidMount() {
     if (localStorage.authToken) {
       this.props.dispatch(fetchLoggedIn(
@@ -31,10 +32,12 @@ class App extends React.Component {
       <Switch>
         <Route path='/' component={HomePage} exact />
         <Route path="/newPost" component={NewPost} />
+        <Route path="/article/:slug" component={SingleArticle} />
         <Route component={Error} />
       </Switch> :
       <Switch>
         <Route path='/' component={HomePage} exact />
+
         <Route path='/register' component={Register} />
         <Route path='/login' component={Login} />
         <Route component={Error} />

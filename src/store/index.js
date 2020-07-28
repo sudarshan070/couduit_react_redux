@@ -1,12 +1,13 @@
 import { createStore, applyMiddleware } from 'redux'
-import { ADD_ARTICLE, ADD_TAG, USER_LOGGED_IN, USER_INFO_ADD, REMOVE_USER } from '../types/types'
-
+import { ADD_ARTICLE, ADD_TAG, USER_LOGGED_IN, USER_INFO_ADD, REMOVE_USER, SINGLE_ARTICLE } from '../types/types'
+import {composeWithDevTools} from 'redux-devtools-extension'
 
 const initialState = {
     articles: [],
     tags: [],
     isLoggedIn: false,
     userInfo: {},
+    article: {}
 }
 
 function reducer(state = initialState, action) {
@@ -38,6 +39,12 @@ function reducer(state = initialState, action) {
                 userInfo: null
             }
         }
+        case SINGLE_ARTICLE: {
+            return {
+                ...state,
+                article: action.payload
+            }
+        }
         default:
             return state
     }
@@ -53,4 +60,4 @@ let thunk = (store) => next => action => {
 
 
 
-export let store = createStore(reducer, applyMiddleware(thunk))
+export let store = createStore(reducer, composeWithDevTools( applyMiddleware(thunk)))

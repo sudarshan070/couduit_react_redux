@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { logoutUser } from "../action/action";
 
 function Header(props) {
-  console.log(props);
   const { isLoggedIn } = props.state;
   return (
     <div className="container-header">

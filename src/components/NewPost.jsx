@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { ADD_ARTICLE } from "../types/types";
 import { addNewArticle } from "../action/action";
 
 class NewPost extends React.Component {
