@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import { logoutUser } from "../action/action";
 
 function Header(props) {
   const { isLoggedIn } = props.state;
@@ -45,16 +44,11 @@ const AuthHeader = (props) => (
     <NavLink className="nav-list" activeClassName="active" to="/newPost">
       New Post
     </NavLink>
-    <NavLink
-      className="nav-list"
-      activeClassName="active"
-      onClick={() => logoutUser(props.dispatch)}
-      to="/"
-    >
+    <NavLink className="nav-list" activeClassName="active" to="/setting">
       Setting
     </NavLink>
-    <NavLink className="nav-list" activeClassName="active" to="/register">
-      {props.username}
+    <NavLink className="nav-list" activeClassName="active" to="/">
+      username
     </NavLink>
   </nav>
 );

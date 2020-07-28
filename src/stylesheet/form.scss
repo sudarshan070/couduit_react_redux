@@ -42,3 +42,20 @@
   background-color: #5cb85c;
   border-color: #5cb85c;
 }
+
+.logout-button {
+  padding-top: 5.5rem;
+  float: left;
+  .btn-logout {
+    color: rgba(255, 0, 0, 0.774);
+    border: 1px solid rgba(255, 0, 0, 0.774);
+    padding: 0.8rem 1.2rem;
+    font-size: 1.125rem;
+    background: #fff;
+    border-radius: 4px;
+  }
+  .btn-logout:hover {
+    background-color: rgba(255, 0, 0, 0.774);
+    color: #fff;
+  }
+}
