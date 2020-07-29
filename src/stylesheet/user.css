@@ -1,0 +1,51 @@
+.user-profile {
+  background: #f3f3f3;
+  text-align: center;
+  padding: 1.8rem;
+  height: 28vh;
+}
+
+.user-profile .user-profile-img {
+  width: 120px;
+  padding: 0.5rem;
+  border: 1px solid;
+}
+
+.user-profile .user-profile-username {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+
+.user-profile .user-profile-bnt {
+  border: 1px solid #ccc;
+  color: #777;
+  font-size: 18px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.3rem;
+}
+
+.form-control {
+  width: 50%;
+  margin: 0 auto;
+  border: solid 1px #cacad3;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+  border-radius: 0.3rem;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.article-form-control {
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.user-profile-btn-right {
+  width: 60%;
+  float: right;
+  margin-bottom: 3rem;
+}
+/*# sourceMappingURL=user.css.map */

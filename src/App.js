@@ -11,6 +11,7 @@ import Article from './components/Article'
 import NewPost from './components/NewPost'
 import SingleArticle from './components/SingleArticle'
 import Setting from './components/Setting'
+import Profile from './components/UserProfile'
 import { connect } from 'react-redux'
 import { fetchLoggedIn } from './action/action';
 
@@ -33,7 +34,9 @@ class App extends React.Component {
       <Switch>
         <Route path='/' component={HomePage} exact />
         <Route path="/newPost" component={NewPost} />
+        <Route path="/article/:slug" component={SingleArticle} />
         <Route path='/setting' component={Setting} />
+        <Route path='/userProfile' component={Profile} />
         <Route component={Error} />
       </Switch> :
       <Switch>

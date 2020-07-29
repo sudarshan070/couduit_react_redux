@@ -1,4 +1,5 @@
 import React from "react";
+import Comment from "./Comment";
 import { fetchSingleArticle } from "../action/action";
 import { connect } from "react-redux";
 
@@ -14,7 +15,6 @@ class SingleArticle extends React.Component {
 
   render() {
     const { article } = this.props;
-    console.log(article);
     if (article.author) {
       var {
         title,
@@ -47,6 +47,9 @@ class SingleArticle extends React.Component {
             <p>{description}</p>
             <p>{body}</p>
           </div>
+        </div>
+        <div className="container">
+          <Comment />
         </div>
       </div>
     );

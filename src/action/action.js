@@ -53,8 +53,7 @@ export function fetchSingleArticle(singleArticleUrl) {
                 "Content-Type": "application/json",
             },
         }).then((res) => res.json())
-            .then(({article}) => {
-                // console.log(article)
+            .then(({ article }) => {
                 dispatch(addSingleArticle(article))
             })
     }
@@ -133,4 +132,16 @@ export function logoutUser(dispatch) {
     dispatch(setUserLogged(false))
     dispatch(removeUserInfo())
     localStorage.clear()
+}
+
+export function fetchUserProfile(url) {
+    return function (dispatch) {
+        fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                authorization: `Token ${localStorage.authToken}`
+            },
+        })
+    }
 }

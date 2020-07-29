@@ -3,6 +3,19 @@
   padding: 1.7rem 0;
 }
 
+.article .single-article-bg {
+  background: #333333;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.article .single-article-title {
+  font-size: 2.8rem;
+  color: #fff;
+  margin-bottom: 2.2rem;
+}
+
 .article .article-flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -97,8 +110,14 @@ ul {
           box-sizing: border-box;
 }
 
-.single-article-title p {
-  font-size: 2rem;
+.article-border-non {
+  border: 0;
+}
+
+.single-article-body p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  margin-bottom: 1.6rem;
 }
 
 .footer {
@@ -293,6 +312,25 @@ ul {
   color: #fff;
   background-color: #5cb85c;
   border-color: #5cb85c;
+}
+
+.logout-button {
+  padding-top: 5.5rem;
+  float: left;
+}
+
+.logout-button .btn-logout {
+  color: rgba(255, 0, 0, 0.774);
+  border: 1px solid rgba(255, 0, 0, 0.774);
+  padding: 0.8rem 1.2rem;
+  font-size: 1.125rem;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.logout-button .btn-logout:hover {
+  background-color: rgba(255, 0, 0, 0.774);
+  color: #fff;
 }
 
 html,

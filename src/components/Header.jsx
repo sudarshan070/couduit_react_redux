@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 function Header(props) {
-  const { isLoggedIn } = props.state;
+  const { isLoggedIn, userInfo } = props.state;
   return (
     <div className="container-header">
       <div>
@@ -11,7 +11,13 @@ function Header(props) {
           conduit
         </Link>
       </div>
-      <>{isLoggedIn ? <AuthHeader {...props} /> : <NonAuthHeader />}</>
+      <>
+        {isLoggedIn ? (
+          <AuthHeader {...props} username={userInfo.username} />
+        ) : (
+          <NonAuthHeader />
+        )}
+      </>
     </div>
   );
 }
@@ -47,8 +53,8 @@ const AuthHeader = (props) => (
     <NavLink className="nav-list" activeClassName="active" to="/setting">
       Setting
     </NavLink>
-    <NavLink className="nav-list" activeClassName="active" to="/">
-      username
+    <NavLink className="nav-list" activeClassName="active" to="/userProfile">
+      {props.username}
     </NavLink>
   </nav>
 );
